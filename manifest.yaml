@@ -8,7 +8,9 @@ info:
     url: http://salsa-system.com
   description: Get weather information.
   termsOfService: http://creativecommons.org/licenses/by-sa/4.0/
-  title: Weather
+  title: Weather21
+  x-21-github-profile-url: https://github.com/salsa-system
+  x-21-github-project-url: https://github.com/salsa-system/weather21
   x-21-usage: 'Get weather information by city name, by zip code or by geographic coordinates (latitude & longitiude). Weather data provided by openweathermap.org'
   x-21-category: utilities
   x-21-app-image: 'https://cdn.filepicker.io/api/file/3oI6CHDjSMek2WHFumbc'
@@ -134,4 +136,3 @@ schemes:
   - http
 swagger: '2.0'
 x-21-manifest-path: /manifest
-
