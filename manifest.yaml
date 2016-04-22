@@ -1,0 +1,137 @@
+basePath: /weather
+host: 10.244.132.211:5050
+info:
+  version: "0.1"
+  contact:
+    email: '21@salsa-system.com'
+    name: Salsa System
+    url: http://salsa-system.com
+  description: Get weather information.
+  termsOfService: http://creativecommons.org/licenses/by-sa/4.0/
+  title: Weather
+  x-21-usage: 'Get weather information by city name, by zip code or by geographic coordinates (latitude & longitiude). Weather data provided by openweathermap.org'
+  x-21-category: utilities
+  x-21-app-image: 'https://cdn.filepicker.io/api/file/3oI6CHDjSMek2WHFumbc'
+  x-21-keywords: [weather, city, zip code, geo, location]
+  x-21-quick-buy: "$ 21 buy url \"http://10.244.132.211:5050/weather/city?cityname=London&countrycode=uk&unit=metric\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/zip?zipcode=94040&countrycode=us&unit=imperial&lang=es\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/geo?latitude=51.51&longitude=-0.13\"\n\n
+  Or download and run the weather client:\n
+  $ wget -O weather.py http://10.244.132.211:5050/weather/client\n
+  $ python3 weather.py \"London\" \"uk\" \"metric\" \"en\""
+  x-21-total-price:
+    min: 2500
+    max: 2500
+paths:
+  /city:
+    get:
+      summary: Call weather info by city name or city name and country code.
+      description: Call weather info by city name or city name and country code.
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: cityname
+          description: name of the city.
+          required: true
+          in: query
+          type: string
+        - name: countrycode
+          description: ISO 3166 country code.
+          required: false
+          in: query
+          type: string
+        - name: unit
+          description: 'standard (Kelvin), metric (Celsius), and imperial (Fahrenheit) units are available. If no units are specified as parameter, weather data is returned by default in standard units format.'
+          required: false
+          in: query
+          type: string
+        - name: lang
+          description: 'language code. If no language code is specified as parameter, weather data is returned by default in English (en). The following languages are supported... English - en, Russian - ru, Italian - it, Spanish - es (or sp), Ukrainian - uk (or ua), German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - sv (or se), Chinese Traditional - zh_tw, Chinese Simplified - zh (or zh_cn), Turkish - tr, Croatian - hr, Catalan - ca.'
+          required: false
+          in: query
+          type: string
+      responses:
+        200:
+          description: 'API responds successfully with city weather information in JSON format, more info: http://openweathermap.org/current#current_JSON.'
+  /zip:
+    get:
+      summary: Call weather info by zip code.
+      description: Call weather info by zip code.
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: zipcode
+          description: zip code of the location.
+          required: true
+          in: query
+          type: string
+        - name: countrycode
+          description: ISO 3166 country code.
+          required: false
+          in: query
+          type: string
+        - name: unit
+          description: 'standard (Kelvin), metric (Celsius), and imperial (Fahrenheit) units are available. If no units are specified as parameter, weather data is returned by default in standard units format.'
+          required: false
+          in: query
+          type: string
+        - name: lang
+          description: 'language code. If no language code is specified as parameter, weather data is returned by default in English (en). The following languages are supported... English - en, Russian - ru, Italian - it, Spanish - es (or sp), Ukrainian - uk (or ua), German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - sv (or se), Chinese Traditional - zh_tw, Chinese Simplified - zh (or zh_cn), Turkish - tr, Croatian - hr, Catalan - ca.'
+          required: false
+          in: query
+          type: string
+      responses:
+        200:
+          description: 'API responds successfully with location weather information corresponding to zip code in JSON format, more info: http://openweathermap.org/current#current_JSON.'
+  /geo:
+    get:
+      summary: Call weather info by geographic coordinates (latitude and longitude).
+      description: Call weather info by geographic coordinates (latitude and longitude).
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json]
+      parameters:
+        - name: latitude.
+          description: Latitude coordinate of location.
+          required: true
+          in: query
+          type: number
+          format: double
+        - name: longitude
+          description:  Longitude coordinate of location.
+          required: true
+          in: query
+          type: number
+          format: double
+        - name: unit
+          description: 'standard (Kelvin), metric (Celsius), and imperial (Fahrenheit) units are available. If no units are specified as parameter, weather data is returned by default in standard units format.'
+          required: false
+          in: query
+          type: string
+        - name: lang
+          description: 'language code. If no language code is specified as parameter, weather data is returned by default in English (en). The following languages are supported... English - en, Russian - ru, Italian - it, Spanish - es (or sp), Ukrainian - uk (or ua), German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - sv (or se), Chinese Traditional - zh_tw, Chinese Simplified - zh (or zh_cn), Turkish - tr, Croatian - hr, Catalan - ca.'
+          required: false
+          in: query
+          type: string
+      responses:
+        200:
+          description: 'API responds successfully with location weather information corresponding to geo coordinates in JSON format, more info: http://openweathermap.org/current#current_JSON.'
+  /client:
+    get:
+      summary: Returns example client script.
+      description: Returns example client script.
+      responses:
+        200:
+          description: client file
+          schema:
+            type: string
+schemes:
+  - http
+swagger: '2.0'
+x-21-manifest-path: /manifest
+
