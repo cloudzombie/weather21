@@ -14,13 +14,19 @@ info:
   x-21-usage: 'Get weather information by city name, by zip code or by geographic coordinates (latitude & longitiude). Weather data provided by openweathermap.org'
   x-21-category: utilities
   x-21-app-image: 'https://cdn.filepicker.io/api/file/3oI6CHDjSMek2WHFumbc'
-  x-21-keywords: [weather, city, zip code, geo, location]
-  x-21-quick-buy: "$ 21 buy url \"http://10.244.132.211:5050/weather/city?cityname=London&countrycode=uk&unit=metric\"\n
-  $ 21 buy url \"http://10.244.132.211:5050/weather/zip?zipcode=94040&countrycode=us&unit=imperial&lang=es\"\n
-  $ 21 buy url \"http://10.244.132.211:5050/weather/geo?latitude=51.51&longitude=-0.13\"\n\n
+  x-21-keywords: [weather, city, zip code, geo, location, forecast]
+  x-21-quick-buy: "Get current weather by city name, by zip code or by geographic coordinates:\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/current/city?cityname=London&countrycode=uk&unit=metric\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/current/zip?zipcode=94040&countrycode=us&unit=imperial&lang=es\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/current/geo?latitude=51.51&longitude=-0.13\"\n\n
+  Get forecast weather by city name, by zip code or by geographic coordinates:\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/forecast/city?cityname=London&countrycode=uk&unit=metric\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/forecast/zip?zipcode=94040&countrycode=us&unit=imperial&lang=es\"\n
+  $ 21 buy url \"http://10.244.132.211:5050/weather/forecast/geo?latitude=51.51&longitude=-0.13\"\n\n
   Or download and run the weather client:\n
   $ wget -O weather.py http://10.244.132.211:5050/weather/client\n
-  $ python3 weather.py \"London\" \"uk\" \"metric\" \"en\""
+  $ python3 weather.py \"current\" \"London\" \"uk\" \"metric\" \"en\"\n
+  $ python3 weather.py \"forecast\" \"London\" \"uk\" \"imperial\" \"es\""
   x-21-total-price:
     min: 2500
     max: 2500
@@ -28,7 +34,7 @@ paths:
   /city:
     get:
       summary: Call weather info by city name or city name and country code.
-      description: Call weather info by city name or city name and country code.
+      description: Call /current/ or /forecast/ weather info by city name or city name and country code.
       consumes:
         - application/x-www-form-urlencoded
       produces:
@@ -60,7 +66,7 @@ paths:
   /zip:
     get:
       summary: Call weather info by zip code.
-      description: Call weather info by zip code.
+      description: Call /current/ or /forecast/ weather info by zip code.
       consumes:
         - application/x-www-form-urlencoded
       produces:
@@ -92,7 +98,7 @@ paths:
   /geo:
     get:
       summary: Call weather info by geographic coordinates (latitude and longitude).
-      description: Call weather info by geographic coordinates (latitude and longitude).
+      description: Call /current/ or /forecast/ weather info by geographic coordinates (latitude and longitude).
       consumes:
         - application/x-www-form-urlencoded
       produces:
