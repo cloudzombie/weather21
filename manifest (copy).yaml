@@ -1,11 +1,11 @@
 basePath: /weather
-host: ip_host:5050
+host: 10.244.132.211:5050
 info:
   version: "0.1"
   contact:
-    email: 'you@email.com'
-    name: 'Your Name'
-    url: http://website.com
+    email: '21@salsa-system.com'
+    name: 'Salsa System'
+    url: http://salsa-system.com
   description: Get weather information.
   termsOfService: http://creativecommons.org/licenses/by-sa/4.0/
   title: Weather21
