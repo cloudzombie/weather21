@@ -4,7 +4,7 @@ info:
   version: "0.1"
   contact:
     email: '21@salsa-system.com'
-    name: Salsa System
+    name: 'Salsa System'
     url: http://salsa-system.com
   description: Get weather information.
   termsOfService: http://creativecommons.org/licenses/by-sa/4.0/
