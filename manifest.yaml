@@ -1,5 +1,5 @@
 basePath: /weather
-host: ip_host:5050
+host: 10.244.132.211:5050
 info:
   version: "0.1"
   contact:
