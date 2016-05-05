@@ -4,8 +4,8 @@ info:
   version: "0.1"
   contact:
     email: 'you@email.com'
-    name: 'Your Name'
-    url: http://website.com
+    name: 'Salsa System'
+    url: http://salsa-system.com
   description: Get weather information.
   termsOfService: http://creativecommons.org/licenses/by-sa/4.0/
   title: Weather21
